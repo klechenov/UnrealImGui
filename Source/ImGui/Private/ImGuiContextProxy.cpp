@@ -93,7 +93,8 @@ FImGuiContextProxy::FImGuiContextProxy(const FString& InName, int32 InContextInd
 	// Start initialization.
 	ImGuiIO& IO = ImGui::GetIO();
 
-	IO.ConfigFlags |= ImGuiConfigFlags_DockingEnable;	
+	IO.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+	IO.BackendFlags |= ImGuiBackendFlags_RendererHasVtxOffset;
 
 	// Set session data storage.
 	IO.IniFilename = IniFilename.c_str();
