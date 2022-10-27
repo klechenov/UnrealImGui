@@ -116,6 +116,7 @@ void FImGuiModuleSettings::UpdateSettings()
 		SetShareMouseInput(SettingsObject->bShareMouseInput);
 		SetUseSoftwareCursor(SettingsObject->bUseSoftwareCursor);
 		SetToggleInputKey(SettingsObject->ToggleInput);
+		SetToggleRenderKey(SettingsObject->ToggleRender);
 		SetCanvasSizeInfo(SettingsObject->CanvasSize);
 	}
 }
@@ -179,6 +180,15 @@ void FImGuiModuleSettings::SetToggleInputKey(const FImGuiKeyInfo& KeyInfo)
 	{
 		ToggleInputKey = KeyInfo;
 		Commands.SetKeyBinding(FImGuiModuleCommands::ToggleInput, ToggleInputKey);
+	}
+}
+
+void FImGuiModuleSettings::SetToggleRenderKey(const FImGuiKeyInfo& KeyInfo)
+{
+	if (ToggleRenderKey != KeyInfo)
+	{
+		ToggleRenderKey = KeyInfo;
+		Commands.SetKeyBinding(FImGuiModuleCommands::ToggleRender, ToggleRenderKey);
 	}
 }
 

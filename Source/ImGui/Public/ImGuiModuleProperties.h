@@ -18,6 +18,15 @@ public:
 	/** Toggle ImGui input. */
 	void ToggleInput() { SetInputEnabled(!IsInputEnabled()); }
 
+	/** Check whether render is enabled. */
+	bool IsRenderEnabled() const { return bRenderEnabled; }
+
+	/** Enable or disable ImGui render. */
+	void SetRenderEnabled(bool bEnabled) { bRenderEnabled = bEnabled; }
+
+	/** Toggle ImGui render. */
+	void ToggleRender() { SetRenderEnabled(!IsRenderEnabled()); }
+
 	/** Check whether keyboard navigation is enabled. */
 	bool IsKeyboardNavigationEnabled() const { return bKeyboardNavigationEnabled; }
 
@@ -84,6 +93,7 @@ public:
 private:
 
 	bool bInputEnabled = false;
+	bool bRenderEnabled = false;
 
 	bool bKeyboardNavigationEnabled = false;
 	bool bGamepadNavigationEnabled = false;

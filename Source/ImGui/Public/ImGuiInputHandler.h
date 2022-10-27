@@ -161,6 +161,13 @@ protected:
 	bool IsToggleInputEvent(const FKeyEvent& KeyEvent) const;
 
 	/**
+	 * Checks whether this key event can toggle ImGui render (as defined in settings).
+	 * @param KeyEvent - Key event to test.
+	 * @returns True, if this key is bound to 'ImGui.ToggleRender' command that switches ImGui input mode.
+	 */
+	bool IsToggleRenderEvent(const FKeyEvent& KeyEvent) const;
+
+	/**
 	 * Checks whether corresponding ImGui context has an active item (holding cursor focus).
 	 * @returns True, if corresponding context has an active item.
 	 */

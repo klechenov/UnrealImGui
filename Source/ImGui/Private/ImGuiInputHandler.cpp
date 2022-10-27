@@ -76,6 +76,12 @@ FReply UImGuiInputHandler::OnKeyDown(const FKeyEvent& KeyEvent)
 			ModuleManager->GetProperties().ToggleInput();
 		}
 
+		if (bConsume && IsToggleRenderEvent(KeyEvent))
+		{
+			ModuleManager->GetProperties().ToggleRender();
+		}
+
+
 		InputState->SetKeyDown(KeyEvent, true);
 		CopyModifierKeys(KeyEvent);
 
@@ -299,6 +305,11 @@ namespace
 bool UImGuiInputHandler::IsToggleInputEvent(const FKeyEvent& KeyEvent) const
 {
 	return IsMatchingEvent(KeyEvent, ModuleManager->GetSettings().GetToggleInputKey());
+}
+
+bool UImGuiInputHandler::IsToggleRenderEvent(const FKeyEvent& KeyEvent) const
+{
+	return IsMatchingEvent(KeyEvent, ModuleManager->GetSettings().GetToggleRenderKey());
 }
 
 bool UImGuiInputHandler::HasImGuiActiveItem() const

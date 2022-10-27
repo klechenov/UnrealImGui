@@ -210,6 +210,14 @@ protected:
 	UPROPERTY(EditAnywhere, config, Category = "Keyboard Shortcuts")
 	FImGuiKeyInfo ToggleInput;
 
+	// Define a shortcut key to 'ImGui.ToggleRender' command. Binding is only set if the key field is valid.
+	// Note that modifier key properties can be set to one of the three values: undetermined means that state of the given
+	// modifier is not important, checked means that it needs to be pressed and unchecked means that it cannot be pressed.
+	//
+	// This binding is using Player Input's DebugExecBindings which only works in non-shipment builds.
+	UPROPERTY(EditAnywhere, config, Category = "Keyboard Shortcuts")
+	FImGuiKeyInfo ToggleRender;
+
 	// Chose how to define the ImGui canvas size. Select between custom, desktop and viewport.
 	UPROPERTY(EditAnywhere, config, Category = "Canvas Size")
 	FImGuiCanvasSizeInfo CanvasSize;
@@ -261,6 +269,9 @@ public:
 	// Get the shortcut configuration for 'ImGui.ToggleInput' command.
 	const FImGuiKeyInfo& GetToggleInputKey() const { return ToggleInputKey; }
 
+	// Get the shortcut configuration for 'ImGui.ToggleRender' command.
+	const FImGuiKeyInfo& GetToggleRenderKey() const { return ToggleRenderKey; }
+
 	// Get the information how to calculate the canvas size.
 	const FImGuiCanvasSizeInfo& GetCanvasSizeInfo() const { return CanvasSize; }
 
@@ -291,6 +302,7 @@ private:
 	void SetShareMouseInput(bool bShare);
 	void SetUseSoftwareCursor(bool bUse);
 	void SetToggleInputKey(const FImGuiKeyInfo& KeyInfo);
+	void SetToggleRenderKey(const FImGuiKeyInfo& KeyInfo);
 	void SetCanvasSizeInfo(const FImGuiCanvasSizeInfo& CanvasSizeInfo);
 	void SetDPIScaleInfo(const FImGuiDPIScaleInfo& ScaleInfo);
 
@@ -303,6 +315,7 @@ private:
 
 	FSoftClassPath ImGuiInputHandlerClass;
 	FImGuiKeyInfo ToggleInputKey;
+	FImGuiKeyInfo ToggleRenderKey;
 	FImGuiCanvasSizeInfo CanvasSize;
 	FImGuiDPIScaleInfo DPIScale;
 	bool bShareKeyboardInput = false;
